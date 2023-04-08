@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Scoreboard</title>
+  </head>
+  <body>
+    <main>
+      <section id="home">
+        <h1 id='home-header'>HOME</h1>
+        <div id="score-wrapper"><span class='score' id='home-score'></span></div>
+        <div id="btn-wrapper">
+          <button id="first-home" type="button">+1</button>
+          <button id="second-home" type="button">+2</button>
+          <button id="third-home" type="button">+3</button>
+        </div>
+      </section>
+      <section id="away">
+        <h1 id='away-header'>AWAY</h1>
+        <div id="score-wrapper"><span class='score' id='away-score'></span></div>
+        <div id="btn-wrapper">
+          <button id="first-away" type="button">+1</button>
+          <button id="second-away" type="button">+2</button>
+          <button id="third-away" type="button">+3</button>
+        </div>
+      </section>
+      <button type='button' id='reset' class='reset'>New Game</button>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
