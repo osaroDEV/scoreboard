@@ -1,18 +1,21 @@
 // checker function
 const checker = () => {
   if (currentAwayScore > currentHomeScore) {
-    console.log('Away above');
     homeHeader.classList.add('loser');
     awayHeader.classList.remove('loser');
   } else if (currentAwayScore < currentHomeScore) {
-    console.log('Home above');
     awayHeader.classList.add('loser');
     homeHeader.classList.remove('loser');
   } else {
-    awayHeader.classList.remove('loser');
-    homeHeader.classList.remove('loser');
+    resetClasses()
   }
 };
+
+// reset classes
+const resetClasses = () => {
+  awayHeader.classList.remove('loser');
+  homeHeader.classList.remove('loser');
+}
 
 //
 let homeHeader = document.getElementById('home-header');
@@ -30,7 +33,7 @@ const thirdHomeBtn = document.getElementById('third-home');
 const homeScore = document.getElementById('home-score');
 
 // render initial home score
-homeScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+homeScore.innerHTML = `${currentHomeScore}`;
 
 // home functions
 function addHomeOne() {
@@ -49,19 +52,19 @@ function addHomeThree() {
 firstHomeBtn.addEventListener('click', function () {
   addHomeOne();
   checker();
-  homeScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+  homeScore.innerHTML = `${currentHomeScore}`;
 });
 
 secondHomeBtn.addEventListener('click', function () {
   addHomeTwo();
   checker();
-  homeScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+  homeScore.innerHTML = `${currentHomeScore}`;
 });
 
 thirdHomeBtn.addEventListener('click', function () {
   addHomeThree();
   checker();
-  homeScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+  homeScore.innerHTML = `${currentHomeScore}`;
 });
 
 // AWAY
@@ -73,7 +76,7 @@ const thirdAwayBtn = document.getElementById('third-away');
 
 const awayScore = document.getElementById('away-score');
 
-awayScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+awayScore.innerHTML = `${currentHomeScore}`;
 
 function addAwayOne() {
   currentAwayScore += 1;
@@ -90,19 +93,19 @@ function addAwayThree() {
 firstAwayBtn.addEventListener('click', function () {
   addAwayOne();
   checker();
-  awayScore.innerHTML = `<span class='score' id='away-score'>${currentAwayScore}</span>`;
+  awayScore.innerHTML = `${currentAwayScore}`;
 });
 
 secondAwayBtn.addEventListener('click', function () {
   addAwayTwo();
   checker();
-  awayScore.innerHTML = `<span class='score' id='away-score'>${currentAwayScore}</span>`;
+  awayScore.innerHTML = `${currentAwayScore}`;
 });
 
 thirdAwayBtn.addEventListener('click', function () {
   addAwayThree();
   checker();
-  awayScore.innerHTML = `<span class='score' id='away-score'>${currentAwayScore}</span>`;
+  awayScore.innerHTML = `${currentAwayScore}`;
 });
 
 // reset 
@@ -111,7 +114,8 @@ let resetBtn = document.getElementById('reset')
 resetBtn.addEventListener('click', function (){
     currentAwayScore = 0;
     currentHomeScore = 0;
-    awayScore.innerHTML = `<span class='score' id='away-score'>${currentAwayScore}</span>`;
-    homeScore.innerHTML = `<span class='score' id='home-score'>${currentHomeScore}</span>`;
+    awayScore.innerHTML = `${currentAwayScore}`;
+    homeScore.innerHTML = `${currentHomeScore}`;
+    resetClasses()
 })
 
